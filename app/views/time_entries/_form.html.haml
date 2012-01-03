@@ -1,0 +1,7 @@
+= semantic_form_for @time_entry do |f|
+  = f.inputs do
+    = f.input :project
+    = f.input :date, :as => :string
+    = f.input :duration
+    = f.input :comment
+  = f.buttons
