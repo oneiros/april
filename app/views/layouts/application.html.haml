@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %title April
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:style => "padding-top: 60px"}
+    .topbar
+      .topbar-inner
+        .container
+          %h3= link_to "April", "/"
+          = render_navigation :level => 1 
+    .container
+      .content
+        = yield

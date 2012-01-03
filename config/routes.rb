@@ -1,4 +1,10 @@
 April::Application.routes.draw do
+
+  resources :time_entries
+  resources :invoices
+  resources :customers
+  resources :invoice_templates
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -49,6 +55,7 @@ April::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  root :to => "time_entries#new"
 
   # See how all your routes lay out with "rake routes"
 
