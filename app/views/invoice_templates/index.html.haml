@@ -1,0 +1,19 @@
+.page-header
+  .pull-right
+    = link_to "Add Template", new_invoice_template_path, :class => "btn primary"
+  %h1 Invoice Templates 
+.row
+  .span16
+    %table.zebra-striped
+      %thead
+        %th Title
+        %th File 
+        %th Actions
+      %tbody
+        - @invoice_templates.each do |invoice_template|
+          %tr
+            %td= invoice_template.title
+            %td= invoice_template.file
+            %td
+              = link_to "Edit", edit_invoice_template_path(invoice_template)
+

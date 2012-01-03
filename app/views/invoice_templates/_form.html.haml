@@ -1,0 +1,12 @@
+= semantic_form_for @invoice_template do |f|
+  = f.inputs do
+    = f.input :title
+    = f.input :file, :as => :select, :collection => InvoiceTemplate.file_names
+    = f.input :paper_size, :as => :select, :collection => Prawn::Document::PageGeometry::SIZES.keys.sort
+    = f.input :header
+    = f.input :address_line
+    = f.input :city
+    = f.input :footer_left
+    = f.input :footer_middle
+    = f.input :footer_right
+  = f.buttons

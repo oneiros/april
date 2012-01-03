@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120103082145) do
+ActiveRecord::Schema.define(:version => 20120103143035) do
 
   create_table "customers", :force => true do |t|
     t.string   "handle"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20120103082145) do
     t.text     "footer_right"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file"
+    t.string   "title"
   end
 
   create_table "invoices", :force => true do |t|
