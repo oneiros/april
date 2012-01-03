@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  invoice_id: 1
+  quantity: 9.99
+  unit: MyString
+  description: MyText
+  unit_price: 9.99
+  vat: 9.99
+
+two:
+  invoice_id: 1
+  quantity: 9.99
+  unit: MyString
+  description: MyText
+  unit_price: 9.99
+  vat: 9.99

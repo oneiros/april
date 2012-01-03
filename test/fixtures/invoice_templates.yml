@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paper_size: MyString
+  header: MyText
+  address_line: MyString
+  city: MyString
+  footer_left: MyText
+  footer_middle: MyText
+  footer_right: MyText
+
+two:
+  paper_size: MyString
+  header: MyText
+  address_line: MyString
+  city: MyString
+  footer_left: MyText
+  footer_middle: MyText
+  footer_right: MyText

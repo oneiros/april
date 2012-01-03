@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_id: 1
+  invoice_template_id: 1
+  date: 2012-01-03
+  number: 1
+  comment: MyText
+
+two:
+  customer_id: 1
+  invoice_template_id: 1
+  date: 2012-01-03
+  number: 1
+  comment: MyText

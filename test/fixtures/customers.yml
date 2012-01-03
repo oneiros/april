@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  handle: MyString
+  name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  zip: MyString
+  city: MyString
+  country: MyString
+
+two:
+  handle: MyString
+  name: MyString
+  address_line_1: MyString
+  address_line_2: MyString
+  zip: MyString
+  city: MyString
+  country: MyString

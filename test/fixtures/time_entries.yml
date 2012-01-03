@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  project_id: 1
+  duration: 9.99
+  comment: MyString
+  date: 2012-01-02
+  invoiced: false
+
+two:
+  project_id: 1
+  duration: 9.99
+  comment: MyString
+  date: 2012-01-02
+  invoiced: false
