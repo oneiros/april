@@ -7,5 +7,6 @@ class Customer < ActiveRecord::Base
   accepts_nested_attributes_for :projects
 
   validates_presence_of :handle, :name, :address_line_1, :city, :zip
+  validates_uniqueness_of :handle
 
 end

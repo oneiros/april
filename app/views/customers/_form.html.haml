@@ -1,0 +1,16 @@
+= semantic_form_for @customer do |f|
+  = f.inputs do
+    = f.input :handle
+    = f.input :name
+    = f.input :address_line_1
+    = f.input :address_line_2
+    = f.input :zip
+    = f.input :city
+    = f.input :country, :as => :string
+  = f.inputs "Projects" do
+    #projects
+      = f.semantic_fields_for :projects do |projects|
+        = render "project_fields", :f => projects
+      .links
+        = link_to_add_association "Add Project", f, :projects, :class => "assoc btn"
+  = f.buttons

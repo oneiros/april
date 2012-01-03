@@ -1,0 +1,5 @@
+.nested-fields
+  = f.inputs do
+    = f.input :title
+    = f.input :time_budget
+    = link_to_remove_association "Remove Project", f, :class => "assoc btn danger"

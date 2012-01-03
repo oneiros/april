@@ -7,3 +7,7 @@
  *= require_self
  *= require_tree . 
 */
+
+a.assoc {
+  margin-left: 150px;
+}

@@ -1,0 +1,21 @@
+.page-header
+  .pull-right
+    = link_to "Add Customer", new_customer_path, :class => "btn primary"
+  %h1 Customers 
+.row
+  .span16
+    %table.zebra-striped
+      %thead
+        %th Handle
+        %th Name
+        %th No. of Projects
+        %th Actions
+      %tbody
+        - @customers.each do |customer|
+          %tr
+            %td= customer.handle
+            %td= customer.name
+            %td= customer.projects.count
+            %td
+              = link_to "Edit", edit_customer_path(customer)
+
