@@ -15,3 +15,11 @@
       .links
         = link_to_add_association "Add Line Item", f, :line_items, :class => "assoc btn"
   = f.buttons
+
+:coffeescript
+
+  default_comments = { #{InvoiceTemplate.all.map{|t| "\"#{t.id}\": \"#{t.default_comment}\""}.join(", ")} }
+
+  jQuery ->
+    $("#invoice_invoice_template_id").change ->
+      $("#invoice_comment").val(default_comments[$("#invoice_invoice_template_id").val()])
