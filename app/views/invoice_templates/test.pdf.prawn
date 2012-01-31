@@ -1,6 +1,6 @@
 require "prawn/measurement_extensions"
 
-prawn_document :page_size => @invoice.invoice_template.paper_size do |pdf|
+prawn_document :page_size => @invoice.invoice_template.paper_size, :filename => filename_for(@invoice) do |pdf|
 
   pdf.stroke_color "007500"
   pdf.horizontal_line pdf.bounds.left, pdf.bounds.right, :at => pdf.bounds.top - 18.mm
