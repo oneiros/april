@@ -1,0 +1,10 @@
+.page-header
+  %h1 New Invoice Step 2: Select Time Entries 
+.row
+  .span16
+    = semantic_form_for :customer, :url => new_invoice_path, :method => :get do |f|
+      = f.inputs do
+        = f.input :id, :as => :hidden, :value => @customer.id
+        = f.input :time_entry_ids, :label => "Time Entries", :as => :check_boxes, :collection => @time_entries
+      = f.buttons do
+        = f.commit_button "Next"

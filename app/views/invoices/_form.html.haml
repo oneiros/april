@@ -1,0 +1,17 @@
+= semantic_form_for @invoice do |f|
+  = f.inputs do
+    = f.input :customer
+    = f.input :invoice_template
+    = f.input :date, :as => :string
+    = f.input :number
+    = f.input :comment, :input_html => {:rows => 2}
+    - unless @time_entries.blank?
+      - @time_entries.each do |time_entry|
+        = f.input "time_entry_ids][", :as => :hidden, :value => time_entry.id
+  = f.inputs "Line Items" do
+    #line-items
+      = f.semantic_fields_for :line_items do |line_item|
+        = render "line_item_fields", :f => line_item
+      .links
+        = link_to_add_association "Add Line Item", f, :line_items, :class => "assoc btn"
+  = f.buttons

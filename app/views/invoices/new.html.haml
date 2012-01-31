@@ -1,0 +1,11 @@
+.page-header
+  %h1 New Invoice 
+.row
+  .span12
+    = render 'form'
+  .span4
+    %p
+      This invoice includes the following time entries:
+    %ul
+      - @time_entries.each do |time_entry|
+        %li= time_entry.to_s

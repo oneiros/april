@@ -5,4 +5,10 @@ class TimeEntry < ActiveRecord::Base
 
   validates_presence_of :duration, :comment, :date
 
+  scope :uninvoiced, where(:invoiced => false)
+
+  def to_s
+    "#{self.date} - #{duration}h - #{project.title} - #{comment}"
+  end
+
 end

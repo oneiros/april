@@ -1,0 +1,21 @@
+.page-header
+  .pull-right
+    = link_to "Add Invoice", select_customer_invoices_path, :class => "btn primary"
+  %h1 Invoices 
+.row
+  .span16
+    %table.zebra-striped
+      %thead
+        %th Number 
+        %th Date
+        %th Customer
+      %tbody
+        - @invoices.each do |invoice|
+          %tr
+            %td= invoice.number
+            %td= invoice.date
+            %td= invoice.customer.name
+            %td
+              = link_to "PDF", invoice_path(invoice, :format => :pdf)
+              = link_to "Edit", edit_invoice_path(invoice)
+

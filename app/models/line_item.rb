@@ -4,4 +4,8 @@ class LineItem < ActiveRecord::Base
 
   validates_presence_of :quantity, :unit, :description, :unit_price
 
+  def total
+    quantity * unit_price
+  end
+
 end

@@ -1,7 +1,12 @@
 April::Application.routes.draw do
 
   resources :time_entries
-  resources :invoices
+  resources :invoices do
+    collection do
+      get :select_customer
+      get :select_time_entries
+    end
+  end
   resources :customers
   resources :invoice_templates
 
