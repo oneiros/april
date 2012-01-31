@@ -16,6 +16,7 @@ prawn_document :page_size => @invoice.invoice_template.paper_size, :filename => 
     pdf.text @invoice.invoice_template.address_line, :size => 6
     pdf.move_down 15 
     pdf.text @invoice.customer.name
+    pdf.text @invoice.contact_person.name if @invoice.contact_person and !@invoice.contact_person.name.blank?
     pdf.text @invoice.customer.address_line_1
     pdf.text @invoice.customer.address_line_2 unless @invoice.customer.address_line_2.blank?
     pdf.move_down 20

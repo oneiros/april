@@ -7,6 +7,12 @@
     = f.input :zip
     = f.input :city
     = f.input :country, :as => :string
+  = f.inputs "Contact People" do
+    #contact_people
+      = f.semantic_fields_for :contact_people do |contact_people|
+        = render "contact_person_fields", :f => contact_people
+      .links
+        = link_to_add_association "Add Contact Person", f, :contact_people, :class => "assoc btn"
   = f.inputs "Projects" do
     #projects
       = f.semantic_fields_for :projects do |projects|

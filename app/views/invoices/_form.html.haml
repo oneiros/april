@@ -1,6 +1,7 @@
 = semantic_form_for @invoice do |f|
   = f.inputs do
     = f.input :customer
+    = f.input :contact_person
     = f.input :invoice_template
     = f.input :date, :as => :string
     = f.input :number
@@ -18,8 +19,11 @@
 
 :coffeescript
 
-  default_comments = { #{InvoiceTemplate.all.map{|t| "\"#{t.id}\": \"#{t.default_comment}\""}.join(", ")} }
+  default_comments = { #{default_comments_for_js} }
+  contact_people = { #{contact_people_for_js} }
 
   jQuery ->
     $("#invoice_invoice_template_id").change ->
       $("#invoice_comment").val(default_comments[$("#invoice_invoice_template_id").val()])
+    $("#invoice_customer_id").change ->
+      $("#invoice_contact_person_id").html(contact_people[$("#invoice_customer_id").val()])

@@ -4,6 +4,7 @@ class Invoice < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :invoice_template
+  belongs_to :contact_person
 
   has_many :line_items
 

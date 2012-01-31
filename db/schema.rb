@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131112556) do
+ActiveRecord::Schema.define(:version => 20120131114728) do
+
+  create_table "contact_people", :force => true do |t|
+    t.string   "name"
+    t.integer  "customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "handle"
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120131112556) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_person_id"
   end
 
   create_table "line_items", :force => true do |t|
