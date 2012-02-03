@@ -11,3 +11,7 @@
 a.assoc {
   margin-left: 150px;
 }
+
+a span.shortcut {
+  text-decoration: underline;
+}

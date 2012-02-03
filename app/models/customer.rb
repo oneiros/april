@@ -8,7 +8,7 @@ class Customer < ActiveRecord::Base
   accepts_nested_attributes_for :projects
   accepts_nested_attributes_for :contact_people
 
-  validates_presence_of :handle, :name, :address_line_1, :city, :zip
+  validates_presence_of :handle, :name
   validates_uniqueness_of :handle
 
   scope :with_uninvoiced_time_entries, select("distinct customers.*").joins(:time_entries).where(:"time_entries.invoiced" => false)

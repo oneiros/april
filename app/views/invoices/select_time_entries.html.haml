@@ -6,5 +6,14 @@
       = f.inputs do
         = f.input :id, :as => :hidden, :value => @customer.id
         = f.input :time_entry_ids, :label => "Time Entries", :as => :check_boxes, :collection => @time_entries
+        .input
+          = link_to "select all", "#", :id => "select-all"
       = f.buttons do
         = f.commit_button "Next"
+
+:coffeescript
+
+  $ ->
+    $("#select-all").click (event) ->
+      $("input[type=checkbox]").attr("checked", true)
+      event.preventDefault()
