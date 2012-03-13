@@ -1,7 +1,7 @@
 class TimeEntriesController < ApplicationController
 
   def index
-    @time_entries = TimeEntry.all
+    @time_entries_by_project = TimeEntry.by_project(:limit => 10)
   end
 
   def new

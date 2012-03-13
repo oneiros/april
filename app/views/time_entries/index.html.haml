@@ -1,23 +1,19 @@
 .page-header
   .pull-right
-    = link_to "Add Entry", new_time_entry_path, :class => "btn primary"
+    = link_to "Add Entry", new_time_entry_path, :class => "btn primary", :"data-shortcut" => "a"
   %h1 Time Entries
-.row
-  .span16
-    %table.zebra-striped
-      %thead
-        %th Date
-        %th Project
-        %th Duration
-        %th Invoiced?
-        %th Actions
-      %tbody
-        - @time_entries.each do |time_entry|
-          %tr
-            %td= time_entry.date
-            %td= time_entry.project.title
-            %td= time_entry.duration
-            %td= time_entry.invoiced?
-            %td
-              = link_to "Edit", edit_time_entry_path(time_entry)
-
+- @time_entries_by_project.keys.each_slice(4) do |projects|
+  .row
+    - projects.each do |project|
+      .span4
+        %h3= project.customer.name + ": " + project.title
+        %p 
+          Time spent:
+          = project.time_spent
+          - unless project.time_budget.blank?
+            \/
+            = project.time_budget
+        %p Last 10 time entries
+        %ul
+          - @time_entries_by_project[project].each do |time_entry|
+            %li= time_entry.to_s
