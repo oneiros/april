@@ -18,4 +18,5 @@
             %td
               = link_to "PDF", invoice_path(invoice, :format => :pdf)
               = link_to "Edit", edit_invoice_path(invoice)
+              = link_to "Time Entries (CSV)", invoice_time_entries_path(invoice, :format => :csv)
 

@@ -1,7 +1,16 @@
 class TimeEntriesController < ApplicationController
 
   def index
-    @time_entries_by_project = TimeEntry.by_project(:limit => 10)
+    if params[:invoice_id]
+      @invoice = Invoice.find(params[:invoice_id])
+    else
+      @time_entries_by_project = TimeEntry.by_project(:limit => 10)
+    end
+
+    respond_to do |format|
+      format.html
+      format.csv { render :text => TimeEntry.csv_export(@invoice.time_entries) }
+    end
   end
 
   def new

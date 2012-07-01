@@ -6,6 +6,7 @@ April::Application.routes.draw do
       get :select_customer
       get :select_time_entries
     end
+    resources :time_entries
   end
   resources :customers
   resources :invoice_templates
