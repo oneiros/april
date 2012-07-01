@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701142830) do
+ActiveRecord::Schema.define(:version => 20120701163008) do
 
   create_table "contact_people", :force => true do |t|
     t.string   "name"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20120701142830) do
     t.decimal  "time_budget"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "default_vat",  :precision => 4, :scale => 2
+    t.decimal  "default_rate", :precision => 8, :scale => 2
   end
 
   create_table "time_entries", :force => true do |t|

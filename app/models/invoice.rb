@@ -18,11 +18,26 @@ class Invoice < ActiveRecord::Base
       times_per_project[time_entry.project] ||= BigDecimal.new(0)
       times_per_project[time_entry.project] +=  time_entry.duration
     end
-    invoice = self.new(:date => Date.today, :customer => customer, :time_entry_ids => time_entries.map(&:id))
+    invoice = self.new(
+      :date => Date.today, 
+      :customer => customer, 
+      :time_entry_ids => time_entries.map(&:id),
+      :number => self.next_number
+    )
     times_per_project.each do |project, duration|
-      invoice.line_items << LineItem.new(:quantity => duration, :unit => "h", :description => project.title)
+      invoice.line_items << LineItem.new(
+        :quantity => duration, 
+        :unit => "h", 
+        :description => project.title, 
+        :unit_price => project.default_rate,
+        :vat => project.default_vat
+      )
     end
     invoice
+  end
+
+  def self.next_number
+    self.connection.select_value("SELECT MAX(number) FROM invoices").to_i + 1
   end
 
   def total
