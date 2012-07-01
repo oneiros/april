@@ -13,7 +13,12 @@
           - unless project.time_budget.blank?
             \/
             = project.time_budget
+        %p
+          Uninvoiced:
+          = project.time_entries.uninvoiced.map(&:duration).sum
         %p Last 10 time entries
         %ul
           - @time_entries_by_project[project].each do |time_entry|
-            %li= time_entry.to_s
+            %li
+              = time_entry.to_s
+              = link_to "(edit)", edit_time_entry_path(time_entry)
