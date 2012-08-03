@@ -9,6 +9,7 @@
         %th Number 
         %th Date
         %th Customer
+        %th
       %tbody
         - @invoices.each do |invoice|
           %tr
@@ -19,4 +20,5 @@
               = link_to "PDF", invoice_path(invoice, :format => :pdf)
               = link_to "Edit", edit_invoice_path(invoice)
               = link_to "Time Entries (CSV)", invoice_time_entries_path(invoice, :format => :csv)
+              = link_to "Time Entries (PDF)", invoice_time_entries_path(invoice, :format => :pdf)
 

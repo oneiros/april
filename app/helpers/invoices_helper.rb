@@ -1,9 +1,13 @@
 # encoding: utf-8
 module InvoicesHelper
 
-  def filename_for(invoice)
-    date = invoice.date.strftime("%Y-%m")
-    "#{date}-#{invoice.customer.handle}-#{invoice.number}.pdf"
+  def filename_for(invoice, options = {})
+    if options[:timesheet]
+      "timesheet-#{invoice.number}.pdf"
+    else
+      date = invoice.date.strftime("%Y-%m")
+      "#{date}-#{invoice.customer.handle}-#{invoice.number}.pdf"
+    end
   end
 
   def format_money(amount)

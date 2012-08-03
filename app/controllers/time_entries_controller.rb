@@ -10,6 +10,7 @@ class TimeEntriesController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { render :text => TimeEntry.csv_export(@invoice.time_entries) }
+      format.pdf
     end
   end
 
