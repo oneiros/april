@@ -16,7 +16,7 @@ prawn_document :page_size => "A4", :filename => filename_for(@invoice, :timeshee
     data << [date, duration, time_entry.comment]
   end
 
-  pdf.table data do |t|
+  pdf.table(data, :column_widths => [3.cm, 15.mm, 13.cm ]) do |t|
     t.cells.borders = []
 
     t.row(0).font_style = :bold
