@@ -40,6 +40,17 @@ class Invoice < ActiveRecord::Base
     self.connection.select_value("SELECT MAX(number) FROM invoices").to_i + 1
   end
 
+  def self.sums
+    result = Hash.new
+    Invoice.all.group_by{|i| i.date.year}.each do |year, invoices|
+      result[year] = Hash.new
+      invoices.group_by{|i| i.date.month}.each do |month, invoices|
+        result[year][month] = invoices.sum{|i| i.total}
+      end
+    end
+    result
+  end
+
   def total
     total = 0
     line_items.each do |line_item|

@@ -1,0 +1,23 @@
+.page-header
+  %h1 Statistics 
+.row
+  .span16
+    %table.zebra-striped
+      %thead
+        %th &nbsp;
+        - ((Date.today.year - 3)..(Date.today.year)).each do |year|
+          %th= year
+      %tbody
+        - (1..12).each do |month|
+          %tr
+            %td= t('date.month_names')[month]
+            - ((Date.today.year - 3)..(Date.today.year)).each do |year|
+              %td= @invoice_sums[year][month] if @invoice_sums[year]
+        %tr
+          %td
+            %b Total
+          - ((Date.today.year - 3)..(Date.today.year)).each do |year|
+            %td
+              %b= @invoice_sums[year].sum{|month, msum| msum} if @invoice_sums[year]
+
+

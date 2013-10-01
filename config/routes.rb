@@ -11,6 +11,8 @@ April::Application.routes.draw do
   resources :customers
   resources :invoice_templates
 
+  match '/statistics' => 'statistics#index', :as => 'statistics'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

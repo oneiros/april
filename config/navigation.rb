@@ -55,6 +55,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :invoices, "Invoices", invoices_path
     primary.item :customers, "Customers", customers_path
     primary.item :invoice_templates, "Invoice Templates", invoice_templates_path
+    primary.item :statistics, "Statistics", statistics_path
 
     # Add an item which has a sub navigation (same params, but with block)
     #primary.item :key_2, 'name', url, options do |sub_nav|
