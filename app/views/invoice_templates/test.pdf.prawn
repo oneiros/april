@@ -12,7 +12,7 @@ prawn_document :page_size => @invoice.invoice_template.paper_size, :filename => 
     pdf.text @invoice.invoice_template.header, :align => :right
   end
 
-  pdf.bounding_box [1.cm, 24.cm], :width => 6.cm do
+  pdf.bounding_box [1.cm, 24.cm], :width => 7.cm do
     pdf.text @invoice.invoice_template.address_line, :size => 6
     pdf.move_down 15 
     pdf.text @invoice.customer.name
