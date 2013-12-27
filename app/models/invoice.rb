@@ -45,7 +45,7 @@ class Invoice < ActiveRecord::Base
     Invoice.all.group_by{|i| i.date.year}.each do |year, invoices|
       result[year] = Hash.new
       invoices.group_by{|i| i.date.month}.each do |month, invoices|
-        result[year][month] = invoices.sum{|i| i.total}
+        result[year][month] = invoices.sum{|i| i.total * i.exchange_rate}
       end
     end
     result

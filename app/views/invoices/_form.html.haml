@@ -6,6 +6,7 @@
     = f.input :date, :as => :string
     = f.input :number
     = f.input :comment, :input_html => {:rows => 2}
+    = f.input :exchange_rate
     - unless @time_entries.blank?
       - @time_entries.each do |time_entry|
         = f.input "time_entry_ids][", :as => :hidden, :value => time_entry.id

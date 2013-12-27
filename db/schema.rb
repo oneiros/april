@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701163008) do
+ActiveRecord::Schema.define(:version => 20131227104146) do
 
   create_table "contact_people", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120701163008) do
     t.string   "file"
     t.string   "title"
     t.text     "default_comment"
+    t.string   "currency",        :default => "EUR"
   end
 
   create_table "invoices", :force => true do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120701163008) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "contact_person_id"
+    t.decimal  "exchange_rate",       :precision => 6, :scale => 2, :default => 1.0
   end
 
   create_table "line_items", :force => true do |t|
